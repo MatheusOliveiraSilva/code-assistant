@@ -29,6 +29,7 @@ At the moment i have feel files in repository, so the tree is like:
 └── requirements.txt
 ```
 So the graph will be like: 
+![image](https://github.com/user-attachments/assets/fbacf391-9e61-40e4-894f-c14824fb6f9e)
 
 That seems to be correct, this part is refered in code-assistant/backend/graph/graph_builder.py in function `create_tree`.
 
