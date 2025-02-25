@@ -1,2 +1,12 @@
 
 .idea/
+
+backend/core/__pycache__/
+
+.env
+
+backend/graph/__pycache__/
+
+backend/core/__init__.py
+
+*.pyc
