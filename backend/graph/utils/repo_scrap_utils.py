@@ -31,11 +31,9 @@ def build_tree_string(root, prefix=""):
 
 def get_tree_string(root_dir):
     """
-    Retorna a estrutura de árvore de um diretório em forma de string,
-    ignorando arquivos/diretórios que começam com "." ou que estão na lista de ignorados.
+    Function to get the tree structure of a directory.
 
-    Exemplo de template:
-
+    Example:
     root_dir/
     ├── dir1/
     │   ├── file1

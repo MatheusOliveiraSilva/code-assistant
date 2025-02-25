@@ -13,10 +13,9 @@ load_dotenv(dotenv_path=".env")
 class RepositoryToGraph:
     def __init__(self, max_retries=5):
         self.graph = Neo4jGraph(refresh_schema=True)
-        # self.llm = get_llm(max_tokens=20000)
         self.llm = ChatOpenAI(openai_api_key=os.getenv("OLD_OPENAI_API_KEY"))
 
-        # Initialize the transformers
+        # Initialize the graph transformers
         self.repo_tree_generator = self.repo_tree_generator()
         self.relations_generator = self.relations_generator()
 
@@ -46,7 +45,7 @@ class RepositoryToGraph:
         """
         return LLMGraphTransformer(
             llm=self.llm,
-#prompt=RELATIONS_PROMPT,
+            #prompt=RELATIONS_PROMPT,
             allowed_nodes=["FILE", "CLASS", "FUNCTION"],
             allowed_relationships=[
                 "DEFINES", "IMPORTS", "USES",
@@ -70,8 +69,9 @@ class RepositoryToGraph:
 
     def create_tree(self, repo_root):
         """
-        Create the nodes from the augmented schema chunks.
-        :return: None
+        Create the nodes and relationships for the repository tree.
+        Args:
+            repo_root: The root of the repository to be converted to a graph.
         """
 
         tree_str = get_tree_string(repo_root)

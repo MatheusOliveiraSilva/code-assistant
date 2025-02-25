@@ -1,9 +1,4 @@
-from langchain.prompts import (
-    SystemMessagePromptTemplate,
-    PromptTemplate,
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-)
+from langchain.prompts import SystemMessagePromptTemplate, PromptTemplate, ChatPromptTemplate, HumanMessagePromptTemplate
 
 REPO_TREE_STRUCTURE = SystemMessagePromptTemplate.from_template("""
 You are a system that builds a knowledge graph from a repository tree structure.
